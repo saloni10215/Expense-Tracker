@@ -1,0 +1,169 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #4facfe,
+        #00f2fe
+    );
+
+    transition:.4s;
+}
+
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:20px;
+}
+
+.weather-card{
+    width:420px;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.15);
+
+    color:white;
+}
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.top-bar h1{
+    font-size:28px;
+}
+
+#themeToggle{
+    border:none;
+    background:white;
+    padding:10px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.search-box{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+#cityInput{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    outline:none;
+    font-size:16px;
+}
+
+#searchBtn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:14px 18px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#searchBtn:hover{
+    transform:translateY(-2px);
+}
+
+#weatherIcon{
+    width:130px;
+    height:130px;
+    margin-top:10px;
+}
+
+#cityName{
+    margin-top:10px;
+    font-size:32px;
+}
+
+.weather-info{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin:25px 0;
+}
+
+.info-box{
+    flex:1;
+    background:rgba(255,255,255,0.15);
+    padding:20px;
+    border-radius:15px;
+}
+
+.info-box h3{
+    font-size:26px;
+}
+
+.info-box p{
+    margin-top:5px;
+}
+
+#description{
+    font-size:18px;
+    text-transform:capitalize;
+}
+
+.dark{
+    background:linear-gradient(
+        135deg,
+        #141e30,
+        #243b55
+    );
+}
+
+.dark .weather-card{
+    background:rgba(0,0,0,0.25);
+}
+
+.dark #cityInput{
+    background:#1f2937;
+    color:white;
+}
+
+@media(max-width:500px){
+
+    .weather-card{
+        width:100%;
+    }
+
+    .weather-info{
+        flex-direction:column;
+    }
+
+    .search-box{
+        flex-direction:column;
+    }
+
+}
