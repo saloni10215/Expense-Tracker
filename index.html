@@ -3,73 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Expense Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
+        <h1>Expense Tracker</h1>
 
-    <div class="weather-card">
+        <form>
+            <input type="text" placeholder="Expense Name">
 
-        <div class="top-bar">
-            <h1>🌦 Weather App</h1>
-            <button id="themeToggle">🌙</button>
+            <input type="number" placeholder="Amount">
+
+            <input type="text" placeholder="Category">
+
+            <button type="button">Add Expense</button>
+        </form>
+
+        <div class="summary">
+            <h3>Total Expenses: ₹0</h3>
         </div>
 
-        <div class="search-box">
-            <input
-                type="text"
-                id="cityInput"
-                placeholder="Enter city name..."
-            >
-            <button id="searchBtn">Search</button>
+        <div class="expenses">
+            <h2>Expenses</h2>
+            <p>No expenses added yet</p>
         </div>
-
-        <div id="weatherResult">
-
-            <img id="weatherIcon" src="" alt="Weather Icon">
-
-            <h2 id="cityName">Search a City</h2>
-
-            <div class="weather-info">
-
-                <div class="info-box">
-                    <h3 id="temperature">--°C</h3>
-                    <p>Temperature</p>
-                </div>
-
-                <div class="info-box">
-                    <h3 id="humidity">--%</h3>
-                    <p>Humidity</p>
-                </div>
-
-            </div>
-
-            <!-- NEW SUNRISE & SUNSET SECTION -->
-            <div class="weather-info">
-
-                <div class="info-box">
-                    <h3 id="sunrise">--:--</h3>
-                    <p>🌅 Sunrise</p>
-                </div>
-
-                <div class="info-box">
-                    <h3 id="sunset">--:--</h3>
-                    <p>🌇 Sunset</p>
-                </div>
-
-            </div>
-
-            <p id="description">Weather Details</p>
-
-        </div>
-
     </div>
-
-</div>
-
-<script src="script.js"></script>
 
 </body>
 </html>
