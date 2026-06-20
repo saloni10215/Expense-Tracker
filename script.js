@@ -17,11 +17,23 @@ addBtn.addEventListener("click", () => {
         return;
     }
 
-    const li = document.createElement("li");
-    li.textContent = `${name} - ₹${amt} (${cat})`;
+   const li = document.createElement("li");
 
-    expenseList.appendChild(li);
+li.innerHTML = `
+    ${name} - ₹${amt} (${cat})
+    <button class="delete-btn">Delete</button>
+`;
 
+expenseList.appendChild(li);
+
+const deleteBtn = li.querySelector(".delete-btn");
+
+deleteBtn.addEventListener("click", () => {
+    totalAmount -= amt;
+    total.textContent = totalAmount;
+
+    li.remove();
+});
     totalAmount += amt;
     total.textContent = totalAmount;
 
