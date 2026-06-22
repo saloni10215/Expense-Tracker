@@ -7,10 +7,14 @@ const category = document.getElementById("category");
 const addBtn = document.getElementById("addBtn");
 const expenseList = document.getElementById("expenseList");
 const total = document.getElementById("total");
+const filterCategory = document.getElementById("filterCategory");
 
-// Function to create expense item
+// Create Expense Item
 function createExpenseItem(name, amt, cat) {
     const li = document.createElement("li");
+
+    // Store category for filtering
+    li.setAttribute("data-category", cat);
 
     li.innerHTML = `
         ${name} - ₹${amt} (${cat})
@@ -75,7 +79,7 @@ addBtn.addEventListener("click", () => {
     category.value = "";
 });
 
-// Load Expenses on Page Refresh
+// Load Expenses After Refresh
 window.addEventListener("DOMContentLoaded", () => {
     const savedExpenses =
         JSON.parse(localStorage.getItem("expenses")) || [];
@@ -93,4 +97,25 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     total.textContent = totalAmount;
+});
+
+// Filter Expenses
+filterCategory.addEventListener("change", () => {
+    const selected = filterCategory.value;
+
+    const items = expenseList.querySelectorAll("li");
+
+    items.forEach(item => {
+        const itemCategory =
+            item.getAttribute("data-category");
+
+        if (
+            selected === "All" ||
+            itemCategory === selected
+        ) {
+            item.style.display = "list-item";
+        } else {
+            item.style.display = "none";
+        }
+    });
 });
