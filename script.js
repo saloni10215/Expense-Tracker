@@ -15,13 +15,39 @@ function createExpenseItem(name, amt, cat) {
 
     // Store category for filtering
     li.setAttribute("data-category", cat);
-
-    li.innerHTML = `
-        ${name} - ₹${amt} (${cat})
-        <button class="delete-btn">Delete</button>
-    `;
+li.innerHTML = `
+    ${name} - ₹${amt} (${cat})
+    <button class="edit-btn">Edit</button>
+    <button class="delete-btn">Delete</button>
+`;
 
     const deleteBtn = li.querySelector(".delete-btn");
+    const editBtn = li.querySelector(".edit-btn");
+    editBtn.addEventListener("click", () => {
+
+    expenseName.value = name;
+    amount.value = amt;
+    category.value = cat;
+
+    totalAmount -= amt;
+    total.textContent = totalAmount;
+
+    expenses = expenses.filter(
+        expense =>
+            !(
+                expense.name === name &&
+                expense.amount === amt &&
+                expense.category === cat
+            )
+    );
+
+    localStorage.setItem(
+        "expenses",
+        JSON.stringify(expenses)
+    );
+
+    li.remove();
+});
 
     deleteBtn.addEventListener("click", () => {
         totalAmount -= amt;
