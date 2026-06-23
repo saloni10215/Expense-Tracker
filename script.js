@@ -18,9 +18,16 @@ function createExpenseItem(name, amt, cat) {
     // Store category for filtering
     li.setAttribute("data-category", cat);
 li.innerHTML = `
-    ${name} - ₹${amt} (${cat})
-    <button class="edit-btn">Edit</button>
-    <button class="delete-btn">Delete</button>
+    <div class="expense-info">
+        <strong>${name}</strong>
+        <small>${cat}</small>
+    </div>
+
+    <div class="expense-actions">
+        <span class="amount">₹${amt}</span>
+        <button class="edit-btn">✏️</button>
+        <button class="delete-btn">🗑️</button>
+    </div>
 `;
 
     const deleteBtn = li.querySelector(".delete-btn");
