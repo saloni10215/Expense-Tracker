@@ -167,3 +167,8 @@ searchInput.addEventListener("keyup", () => {
         }
     });
 });
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        addBtn.click();
+    }
+});
