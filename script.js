@@ -8,10 +8,12 @@ const addBtn = document.getElementById("addBtn");
 const expenseList = document.getElementById("expenseList");
 const total = document.getElementById("total");
 const filterCategory = document.getElementById("filterCategory");
+const searchInput = document.getElementById("searchInput");
 
 // Create Expense Item
 function createExpenseItem(name, amt, cat) {
     const li = document.createElement("li");
+    li.setAttribute("data-name", name.toLowerCase());
 
     // Store category for filtering
     li.setAttribute("data-category", cat);
@@ -139,6 +141,26 @@ filterCategory.addEventListener("change", () => {
             selected === "All" ||
             itemCategory === selected
         ) {
+            item.style.display = "list-item";
+        } else {
+            item.style.display = "none";
+        }
+    });
+});
+searchInput.addEventListener("keyup", () => {
+
+    const searchText =
+        searchInput.value.toLowerCase();
+
+    const items =
+        expenseList.querySelectorAll("li");
+
+    items.forEach(item => {
+
+        const expenseName =
+            item.getAttribute("data-name");
+
+        if (expenseName.includes(searchText)) {
             item.style.display = "list-item";
         } else {
             item.style.display = "none";
